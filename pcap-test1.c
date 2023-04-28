@@ -79,7 +79,8 @@ int main(int argc, char* argv[]) {
 
             // Print payload (data)
             int payload_size = header->caplen - offset;
-            if (payload_size > 0) {
+            // data 가 0인 경우에도 
+            if (payload_size >= 0) {
                 printf("Payload: ");
                 for (int i = 0; i < payload_size && i < 10; i++) {
                     printf("%02x ", *(packet + offset + i));
